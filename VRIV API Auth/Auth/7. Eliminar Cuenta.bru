@@ -1,0 +1,20 @@
+meta {
+  name: 7. Eliminar Cuenta
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{vriv}}/auth/delete-account
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Authorization: Bearer {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+}

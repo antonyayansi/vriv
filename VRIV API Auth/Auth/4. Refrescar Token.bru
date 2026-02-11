@@ -1,0 +1,28 @@
+meta {
+  name: 4. Refrescar Token
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{vriv}}/auth/refresh
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Authorization: Bearer {{access_token}}
+}
+
+script:post-response {
+  var jsonData = res.getBody();
+  if (jsonData.access_token) {
+      bru.setVar("access_token", jsonData.access_token);
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

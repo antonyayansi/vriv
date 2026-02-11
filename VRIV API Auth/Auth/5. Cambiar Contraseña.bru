@@ -1,0 +1,29 @@
+meta {
+  name: 5. Cambiar Contraseña
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{vriv}}/auth/change-password
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Authorization: Bearer {{access_token}}
+}
+
+body:json {
+  {
+      "current_password": "password123",
+      "new_password": "nueva123",
+      "new_password_confirmation": "nueva123"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

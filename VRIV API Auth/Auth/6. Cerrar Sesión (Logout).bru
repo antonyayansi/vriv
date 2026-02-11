@@ -1,0 +1,21 @@
+meta {
+  name: 6. Cerrar Sesión (Logout)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{vriv}}/auth/logout
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Authorization: Bearer {{access_token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

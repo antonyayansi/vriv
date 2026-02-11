@@ -1,0 +1,32 @@
+meta {
+  name: 1. Registrar Usuario
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{vriv}}/auth/register
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+}
+
+body:json {
+  {
+      "name": "Usuario Test",
+      "email": "test@example.com",
+      "password": "password123"
+  }
+}
+
+vars:pre-request {
+  vriv: http://localhost:8000/api
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
