@@ -1,0 +1,16 @@
+---
+import Saldo from "../vue/Saldo.vue";
+
+
+---
+<div class="dark:bg-neutral-900">
+    <div class="w-full  container mx-auto flex items-center justify-between py-2">
+        <div class="flex items-center gap-4 dark:text-white">
+            <!-- <img src="/assets/logo.png" alt="Logo" class="w-10 h-10"> -->
+            <span class="text-xl font-bold">VRIV</span>
+        </div>
+        <nav class="flex items-center gap-6">
+            <Saldo client:load/>
+        </nav>
+    </div>
+</div>

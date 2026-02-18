@@ -1,8 +1,18 @@
 ---
+import Sidebar from "../components/astro/Sidebar.astro";
+import Topbar from "../components/astro/Topbar.astro";
 import Layout from "../layouts/Layout.astro";
 
 ---
 
 <Layout>
-	<h1>HOLA</h1>
+	<div class="dark:bg-neutral-800 h-screen overflow-y-auto">
+		<Topbar />
+		<div class="flex space-x-2">
+			<Sidebar />
+			<main class="container mx-auto py-2">
+				<h1>HOLA</h1>
+			</main>
+		</div>
+	</div>
 </Layout>

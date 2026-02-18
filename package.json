@@ -16,6 +16,7 @@
     "@types/react-dom": "^19.2.3",
     "astro": "^5.17.1",
     "motion": "^12.31.0",
+    "pinia": "^3.0.4",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwindcss": "^4.1.18",
