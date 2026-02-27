@@ -1,7 +1,7 @@
 <template>
-    <div class="h-screen overflow-y-auto">
+    <div class="h-screen overflow-y-auto bg-zinc-950">
         <Topbar />
-        <div class="container mx-auto">
+        <div class="max-w-7xl mx-auto">
             <RouterView />
         </div>
     </div>

@@ -2,8 +2,9 @@
     <div class="sticky top-0 z-50 backdrop-blur-sm bg-white/20 dark:bg-zinc-900/30">
         <div class="container py-3 px-4 mx-auto">
             <div class="flex justify-between items-center">
-                <div>
+                <div class="flex space-x-2 items-center">
                     <RouterLink to="/">VRIV</RouterLink>
+                    <!-- <InputText size="small" placeholder="Buscar..." rounde class="w-64" /> -->
                 </div>
                 <div v-if="!isAuthenticated" class="flex space-x-2 items-center">
                     <Button label="Registrarse" outlined size="small"/>
