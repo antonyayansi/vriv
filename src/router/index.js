@@ -14,6 +14,11 @@ const routes = [
     name: "index",
     ...routerApp,
   },
+  {
+    name: "callback-google",
+    path: "/auth/callback",
+    component: () => import("../pages/Callback.vue")
+  }
 ];
 
 const router = createRouter({

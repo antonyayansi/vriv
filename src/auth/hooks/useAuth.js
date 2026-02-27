@@ -9,7 +9,9 @@ const useAuth = () => {
         ...storeAuth,
         onLogin: auth().onLogin,
         checkAuth: auth().checkAuth,
-        logout: auth().logout
+        logout: auth().logout,
+        onLoginWithGoogle: auth().onLoginWithGoogle,
+        onLoginCallback: auth().onLoginCallback
     }
 
 }

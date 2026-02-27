@@ -42,7 +42,7 @@
                 </Divider>
             </div>
             <div>
-                <Button label="Ingresar con Google" outlined fluid icon="pi pi-google"/>
+                <Button @click="onLoginWithGoogle" label="Ingresar con Google" outlined fluid icon="pi pi-google"/>
             </div>
         </div>
     </Dialog>
@@ -70,7 +70,8 @@ const {
     isAuthenticated,
     onLogin,
     isLoading,
-    error
+    error,
+    onLoginWithGoogle
 } = useAuth()
 
 const openForm = () => {
