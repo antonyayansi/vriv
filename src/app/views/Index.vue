@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-zinc-950 text-white">
+    <div class="min-h-screen text-zinc-900 dark:bg-zinc-950 dark:text-white transition-colors duration-200">
 
         <!-- Hero Banner -->
         <div class="relative overflow-hidden rounded-2xl mx-4 mt-4"
@@ -15,7 +15,7 @@
                         style="color: #f5c842; text-shadow: 0 0 20px rgba(245,200,66,0.4)">
                         GET THE BONUS ON THE<br />FIRST DEPOSIT UP TO<br />500% AND 25 FS
                     </h1>
-                    <p class="text-zinc-400 mb-6 text-sm">Claim bonus every day</p>
+                    <p class="text-zinc-300 mb-6 text-sm">Claim bonus every day</p>
                     <Button label="Claim Bonus" size="small"
                         style="background: #f5a623; border-color: #f5a623; font-weight: 700; padding: 0.6rem 1.5rem;" />
                 </div>
@@ -29,13 +29,13 @@
         </div>
 
         <!-- Category Nav -->
-        <div class="mx-4 mt-4 bg-zinc-900 rounded-xl px-4 py-2 flex items-center justify-between gap-2 overflow-x-auto">
+        <div class="mx-4 mt-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-transparent rounded-xl px-4 py-2 flex items-center justify-between gap-2 overflow-x-auto transition-colors duration-200">
             <div class="flex items-center gap-1 shrink-0">
                 <button v-for="cat in categories" :key="cat.label" @click="activeCategory = cat.label"
                     class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200"
                     :class="activeCategory === cat.label
                         ? 'bg-blue-600 text-white'
-                        : 'text-zinc-400 hover:text-white hover:bg-zinc-800'">
+                        : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800'">
                     <span class="text-base">{{ cat.icon }}</span>
                     {{ cat.label }}
                     <span v-if="cat.count" class="bg-blue-500 text-white text-xs px-1.5 py-0.5 rounded-full font-bold">
@@ -47,7 +47,7 @@
                 <IconField>
                     <InputIcon class="pi pi-search" />
                     <InputText v-model="searchQuery" placeholder="Search games" size="small"
-                        class="bg-zinc-800 border-zinc-700 text-sm w-40" />
+                        class="bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-sm w-40" />
                 </IconField>
             </div>
         </div>
@@ -58,15 +58,14 @@
                 <button v-for="tab in filterTabs" :key="tab" @click="activeTab = tab"
                     class="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200" :class="activeTab === tab
                         ? 'bg-blue-600 text-white'
-                        : 'text-zinc-400 hover:text-white hover:bg-zinc-800'">
+                        : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-200 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800'">
                     {{ tab }}
                 </button>
             </div>
             <Select v-model="selectedProvider" :options="providers" placeholder="Select provider" size="small"
-                class="bg-zinc-800 border-zinc-700 text-sm w-48"
-                :pt="{ root: { class: 'bg-zinc-800 border-zinc-700' } }">
+                class="bg-white dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-sm w-48">
                 <template #dropdownicon>
-                    <i class="pi pi-sliders-h mr-1 text-zinc-400 text-xs" />
+                    <i class="pi pi-sliders-h mr-1 text-zinc-400 dark:text-zinc-400 text-xs" />
                 </template>
             </Select>
         </div>
@@ -79,18 +78,18 @@
                     <span class="text-lg font-bold uppercase tracking-wide">Popular</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button class="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1">
-                        View all <span class="bg-zinc-700 text-white text-xs px-1.5 py-0.5 rounded-full">{{
+                    <button class="text-sm text-blue-500 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300 flex items-center gap-1">
+                        View all <span class="bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-white text-xs px-1.5 py-0.5 rounded-full">{{
                             popularGames.length
                             }}</span>
                         <i class="pi pi-angle-right text-xs" />
                     </button>
                     <button @click="scrollLeft('popular')"
-                        class="w-8 h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center transition-colors">
+                        class="w-8 h-8 rounded-full bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 flex items-center justify-center transition-colors">
                         <i class="pi pi-angle-left text-sm" />
                     </button>
                     <button @click="scrollRight('popular')"
-                        class="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-500 flex items-center justify-center transition-colors">
+                        class="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-500 flex items-center justify-center transition-colors text-white">
                         <i class="pi pi-angle-right text-sm" />
                     </button>
                 </div>
@@ -107,7 +106,7 @@
                         <div class="absolute bottom-0 left-0 right-0 p-3 text-center"
                             style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)">
                             <p class="text-white font-bold text-xs uppercase leading-tight">{{ game.name }}</p>
-                            <p class="text-zinc-400 text-xs mt-0.5">{{ game.subtitle }}</p>
+                            <p class="text-zinc-300 text-xs mt-0.5">{{ game.subtitle }}</p>
                         </div>
                         <!-- Hover overlay -->
                         <div
@@ -128,18 +127,18 @@
                     <span class="text-lg font-bold uppercase tracking-wide">New Games</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button class="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1">
-                        View all <span class="bg-zinc-700 text-white text-xs px-1.5 py-0.5 rounded-full">{{
+                    <button class="text-sm text-blue-500 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300 flex items-center gap-1">
+                        View all <span class="bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-white text-xs px-1.5 py-0.5 rounded-full">{{
                             newGames.length
                             }}</span>
                         <i class="pi pi-angle-right text-xs" />
                     </button>
                     <button @click="scrollLeft('new')"
-                        class="w-8 h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center transition-colors">
+                        class="w-8 h-8 rounded-full bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 flex items-center justify-center transition-colors">
                         <i class="pi pi-angle-left text-sm" />
                     </button>
                     <button @click="scrollRight('new')"
-                        class="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-500 flex items-center justify-center transition-colors">
+                        class="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-500 flex items-center justify-center transition-colors text-white">
                         <i class="pi pi-angle-right text-sm" />
                     </button>
                 </div>
@@ -158,7 +157,7 @@
                         <div class="absolute bottom-0 left-0 right-0 p-3 text-center"
                             style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)">
                             <p class="text-white font-bold text-xs uppercase leading-tight">{{ game.name }}</p>
-                            <p class="text-zinc-400 text-xs mt-0.5">{{ game.subtitle }}</p>
+                            <p class="text-zinc-300 text-xs mt-0.5">{{ game.subtitle }}</p>
                         </div>
                         <div
                             class="absolute inset-0 z-10 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
